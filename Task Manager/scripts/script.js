@@ -32,6 +32,7 @@ function toggleDetails() {
 
 function saveTask() {
     console.log("saving task...");
+    // need to add values for important
     let important = $("#toggle:checked").val();
     let title = $("#txtTitle").val();
     let description = $("#description").val();
