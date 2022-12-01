@@ -19,7 +19,7 @@ body {
 }
 
 body {
-    background: black;
+    background: rgb(4, 5, 17);
 }
 
 .active-tasks {
@@ -27,37 +27,66 @@ body {
 }
 
 .task-title {
-    color: black;
-    font-weight: bolder;
+    color: brown;
+    font-weight: 900;
     flex: 4;
+}
+
+.imp-toggle {
+    display: flex;
+}
+
+.task-title h4 {
+    background-image: linear-gradient(
+        rgba(218, 207, 192, 0.7),
+        rgba(199, 130, 130, 0.7),
+        rgba(218, 207, 192, 0.7)
+    );
+    font-size: 2.5rem;
+    max-width: fit-content;
 }
 
 .task-title p {
     color: brown;
     font-weight: bold;
+    text-shadow: 2px 2px 3px rgb(247, 243, 243);
+    font-size: 1.5rem;
 }
 
 .active-tasks label {
     flex: 1;
     color: brown;
     font-weight: bolder;
+    text-shadow: 2px 2px 3px rgb(247, 243, 243);
+    font-size: 1.5rem;
 }
 
 .title-header {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    text-align: center;
+    padding-top: 2rem;
+    padding-left: 3rem;
+    padding-bottom: 2rem;
     display: flex;
     justify-content: space-between;
 }
 
+h3 {
+    font-size: 3rem;
+}
+
 .toggle {
     display: none;
+    padding: 1rem;
 }
 
 .label {
     position: relative;
     display: flex;
     align-items: center;
+}
+
+.form-label {
+    padding-top: 1rem;
 }
 
 .switch-label {
@@ -122,15 +151,15 @@ body {
 
 .main-container {
     display: flex;
-    height: calc(100% - 76.44px);
-    background-image: (src= "");
+    height: calc(100% - 90.44px);
+    background-image: url(../images/post-its.jpg);
 }
 
 #secList {
     padding-left: 1rem;
     padding-right: 1rem;
     flex: 2;
-    background-color: rgba(222, 184, 135, 0.451);
+    background-color: rgba(222, 184, 135, 0.757);
 }
 
 #secForm {
@@ -140,8 +169,16 @@ body {
     background-color: rgb(199, 130, 130);
 }
 
+#secForm h4 {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-weight: 900;
+}
+
 .main-title {
-    margin: 0.8rem, 0;
+    padding: 1rem;
+    margin: 1rem, 0;
     text-align: center;
     color: brown;
     font-weight: bolder;
@@ -154,6 +191,17 @@ footer {
     text-align: center;
 }
 
-#topIcon.fa-solid {
-    color: red;
+.btn-danger {
+    background-color: brown;
+    height: 5rem;
+    margin-top: 1rem;
+    border-radius: 35%;
+}
+
+#btnSave {
+    background-color: burlywood;
+    color: black;
+    font-weight: 900;
+    border-radius: 35%;
+    margin-top: 1rem;
 }

@@ -40,12 +40,32 @@ function saveTask() {
     let category = $("#category").val();
     let priority = $("#priority").val();
     let budget = $("#budget").val();
+
     //create a new instance of Task (object)
     let task = new Task(important, title, description, dueDate, category, priority, budget);
-    console.log(task);
     //console log the instance (object)
+    console.log(task);
+    displayTask(task);
 }
 
+function displayTask(task) {
+    let syntax = `<div class=active-tasks>
+    ⚪
+    
+    <div class=task-title>
+        <h4>${task.title}</h4>
+        <p>${task.description}</p>
+    </div>
+
+    <label>${task.dueDate}</label>
+    <label>${task.category}</label>
+    <label>$${task.budget}</label>
+    </div>
+    `;
+
+    $("#pendingTasks").append(syntax);
+
+}
 
 
 

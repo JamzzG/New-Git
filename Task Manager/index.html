@@ -22,24 +22,35 @@
 
     <body>
         <nav></nav>
-        <h1>My Derpy Task Manager</h1>
+        <h1 class="main-title">My Derpy Task Manager</h1>
         <main class="main-container">
             <section id="secList">
-                <h3>Pending Tasks 💼</h3>
-                <button id="btnToggleDetails" class="btn btn-danger">
-                    Hide / Show Details
-                </button>
+                <div class="title-header">
+                    <h3>
+                        💼 <br />
+                        Tasks
+                    </h3>
+
+                    <button id="btnToggleDetails" class="btn btn-danger">
+                        Hide / Show
+                        <br />Details
+                    </button>
+                </div>
+
+                <div id="pendingTasks">
+                    <!-- create task here -->
+                </div>
             </section>
             <section id="secForm">
                 <h4>Enter details for New Task</h4>
+                <div class="imp-toggle">
+                    <label><b>Important? &nbsp &nbsp</b></label>
+                    <input type="checkbox" class="toggle" id="toggle" />
 
-                <label for="toggle">Important ?</label>
-                <input type="checkbox" class="toggle" id="toggle" />
-
-                <div id="page">
-                    <div class="label">
-                        <label for="toggle" class="switch-label"></label>
-                        </label>
+                    <div id="page">
+                        <div class="label">
+                            <label for="toggle" class="switch-label"></label>
+                        </div>
                     </div>
                 </div>
 
@@ -73,10 +84,10 @@
                 <div>
                     <label class="form-label" for="category">Category</label>
                     <select class="form-select" name="category" id="category">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
+                        <option>Work</option>
+                        <option>Hobby</option>
+                        <option>Home</option>
+                        <option></option>
                     </select>
                 </div>
 
@@ -85,8 +96,9 @@
                         >Priority Level</label
                     >
                     <select class="form-select" name="priority" id="priority">
-                        <option value="">1</option>
-                        <option value="">2</option>
+                        <option>Low</option>
+                        <option>Med</option>
+                        <option>High</option>
                     </select>
                 </div>
 
@@ -117,6 +129,3 @@
 </html>
 
 <!-- cdn(font awesome or bootstrap) -->
-
-
-
