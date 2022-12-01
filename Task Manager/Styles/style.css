@@ -22,6 +22,34 @@ body {
     background: black;
 }
 
+.active-tasks {
+    display: flex;
+}
+
+.task-title {
+    color: black;
+    font-weight: bolder;
+    flex: 4;
+}
+
+.task-title p {
+    color: brown;
+    font-weight: bold;
+}
+
+.active-tasks label {
+    flex: 1;
+    color: brown;
+    font-weight: bolder;
+}
+
+.title-header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
 .toggle {
     display: none;
 }
@@ -51,7 +79,7 @@ body {
 .switch-label::before {
     width: 2.2rem;
     height: 1rem;
-    background-color: #fff;
+    background-color: burlywood;
     border-radius: 100rem;
     -webkit-transition: background-color 0.25s ease;
     transition: background-color 0.25s ease;
@@ -67,7 +95,7 @@ body {
 }
 
 .toggle:checked ~ #page .switch-label::before {
-    background: yellow;
+    background: burlywood;
 }
 
 .toggle:checked ~ #page .switch-label::after {
@@ -95,19 +123,24 @@ body {
 .main-container {
     display: flex;
     height: calc(100% - 76.44px);
+    background-image: (src= "");
 }
 
 #secList {
+    padding-left: 1rem;
+    padding-right: 1rem;
     flex: 2;
-    background-color: burlywood;
+    background-color: rgba(222, 184, 135, 0.451);
 }
 
 #secForm {
+    padding-left: 1rem;
+    padding-right: 1rem;
     flex: 1;
     background-color: rgb(199, 130, 130);
 }
 
-h1 {
+.main-title {
     margin: 0.8rem, 0;
     text-align: center;
     color: brown;
