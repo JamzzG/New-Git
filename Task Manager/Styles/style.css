@@ -1,0 +1,126 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 97.7vh;
+    /* This zeros out the margings for the main page} */
+}
+
+:root {
+    --dark-switch-shadow: #fce477;
+    --dark-switch-icon: "⚪";
+
+    --light-switch-shadow: #fce477;
+    --light-switch-icon: "❗";
+
+    /* Default */
+    --switch-icon: var(--dark-switch-icon);
+    --switch-shadow-color: var(--dark-switch-shadow);
+}
+
+body {
+    background: black;
+}
+
+.toggle {
+    display: none;
+}
+
+.label {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.switch-label {
+    width: 2.2rem;
+    height: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.switch-label::before,
+.switch-label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    cursor: pointer;
+}
+
+.switch-label::before {
+    width: 2.2rem;
+    height: 1rem;
+    background-color: #fff;
+    border-radius: 100rem;
+    -webkit-transition: background-color 0.25s ease;
+    transition: background-color 0.25s ease;
+}
+
+.switch-label::after {
+    left: -0.25rem;
+    content: var(--switch-icon);
+    font-size: 1.5rem;
+    animation: blink-shadow 2s linear infinite;
+    -webkit-transition: left 0.25s ease;
+    transition: left 0.25s ease;
+}
+
+.toggle:checked ~ #page .switch-label::before {
+    background: yellow;
+}
+
+.toggle:checked ~ #page .switch-label::after {
+    left: 1rem;
+}
+
+@keyframes blink-shadow {
+    0% {
+        text-shadow: 0 0 0rem var(--switch-shadow-color);
+    }
+    50% {
+        text-shadow: 0 0 1rem var(--switch-shadow-color);
+    }
+
+    100% {
+        text-shadow: 0 0 0rem var(--switch-shadow-color);
+    }
+}
+
+.toggle:checked ~ #page {
+    --switch-shadow-color: var(--light-switch-shadow);
+    --switch-icon: var(--light-switch-icon);
+}
+
+.main-container {
+    display: flex;
+    height: calc(100% - 76.44px);
+}
+
+#secList {
+    flex: 2;
+    background-color: burlywood;
+}
+
+#secForm {
+    flex: 1;
+    background-color: rgb(199, 130, 130);
+}
+
+h1 {
+    margin: 0.8rem, 0;
+    text-align: center;
+    color: brown;
+    font-weight: bolder;
+    text-shadow: burlywood 1px 1px 2px;
+}
+
+footer {
+    background-color: brown;
+    color: white;
+    text-align: center;
+}
+
+#topIcon.fa-solid {
+    color: red;
+}
