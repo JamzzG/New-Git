@@ -33,7 +33,7 @@ function toggleDetails() {
 function saveTask() {
     console.log("saving task...");
     // need to add values for important
-    let important = $("#toggle:checked").val();
+    let important = $("#toggle:checked").val() || false;
     let title = $("#txtTitle").val();
     let description = $("#description").val();
     let dueDate = $("#dueDate").val();
@@ -45,8 +45,26 @@ function saveTask() {
     let task = new Task(important, title, description, dueDate, category, priority, budget);
     //console log the instance (object)
     console.log(task);
-    displayTask(task);
+
+
+    //create a post request to:
+    $.ajax({
+        type: "POST",
+        url: "https://fsdiapi.azurewebsites.net/api/tasks/",
+        data: JSON.stringify(task),
+        contentType: "application/json",
+        success: function (data) {
+            console.log("Save succeeded", data);
+            displayTask(task);
+            //http cannot send objects so we'll need to encode it into a string, number, or true/false and current best practice is to use JSON (JS Object Notation)                            
+        },
+        error: function (error) {
+            console.log("Save failed", error);
+            alert("Error task not saved");
+        },
+    });
 }
+
 
 function displayTask(task) {
     let syntax = `<div class=active-tasks>
@@ -67,10 +85,46 @@ function displayTask(task) {
 
 }
 
+//to test this function execute testRequest(); directly in console
+// it will return the data or error info
+function testRequest() {
+    $.ajax({
+        type: "GET",
+        url: "https://fsdiapi.azurewebsites.net",
+        success: function (data) {
+            console.log("Server says", data);
+        },
+        error: function () {
+            console.log("Request error: ", error);
+        }
+    });
+}
 
+function fetchTasks() {
+    //send a get request:
+    $.ajax({
+        type: "GET",
+        url: "https://fsdiapi.azurewebsites.net/api/tasks",
+        success: function (data) {
+            let all = JSON.parse(data); //parses the JSON string inot JS Object/Arrray
+            //all = the the tasks saved on the server 
+
+            for (let i = 0; i < all.length; i++) {
+                let task = all[i];
+                //if the task name is equal to my name then display them 
+                if (task.name === "James") {
+                    displayTask(task);
+                }
+            }
+        },
+        error: function () {
+            console.log("Request error: ", error);
+        }
+    });
+}
 
 function init() {
-    console.log("I'm working!");
+    fetchTasks();
     $("#btnSave").click(saveTask);
     $("#btnToggleDetails").click(toggleDetails);
     // $("#toggle").click(toggleImportant); //Not needed now

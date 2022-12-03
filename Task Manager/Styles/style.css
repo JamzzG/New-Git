@@ -151,7 +151,7 @@ h3 {
 
 .main-container {
     display: flex;
-    height: calc(100% - 90.44px);
+    min-height: calc(100% - 90.44px);
     background-image: url(../images/post-its.jpg);
 }
 
