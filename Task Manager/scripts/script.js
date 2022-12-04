@@ -67,30 +67,55 @@ function saveTask() {
 
 
 function displayTask(task) {
-    let syntax = `<div class=active-tasks>
+    let syntax = `
+    <div class=active-tasks>
     ⚪
-    
-    <div class=task-title>
-        <h4>${task.title}</h4>
-        <p>${task.description}</p>
-    </div>
+        <div class=task-title>
+            <h4>${task.title}</h4>
+            <p>${task.description}</p>
+        </div>
 
-    <label>${task.dueDate}</label>
-    <label>${task.category}</label>
-    <label>$${task.budget}</label>
+        <div class=task-items>
+            <div>
+                <label>${task.dueDate}</label>
+                <label>${task.category}</label>
+                <label>$${task.budget}</label>
+            </div>
+    
+            
+            <button class="btn btnRemove" onclick="btnRemove()">Task Completed</button>
+        </div>
     </div>
     `;
 
     $("#pendingTasks").append(syntax);
-
 }
+
+// function btnRemove() {
+//     console.log("Start of btnRemove function"),
+//         console.log("Removing")
+//     let delRequest = $.ajax({
+//         url: "https://fsdiapi.azurewebsites.net/api/tasks",
+//         type: "REMOVE",
+//         dataType: 'json',
+//         data: person,
+
+//         success: function (delRequest, data) {
+//             console.log("Data during", data);
+//         },
+//         error: function () {
+//             console.log("Request error: ", error);
+//         }
+//     });
+// }
+
 
 //to test this function execute testRequest(); directly in console
 // it will return the data or error info
 function testRequest() {
     $.ajax({
         type: "GET",
-        url: "https://fsdiapi.azurewebsites.net",
+        url: "https://fsdiapi.azurewebsites.net/api/tasks",
         success: function (data) {
             console.log("Server says", data);
         },
@@ -127,7 +152,6 @@ function init() {
     fetchTasks();
     $("#btnSave").click(saveTask);
     $("#btnToggleDetails").click(toggleDetails);
-    // $("#toggle").click(toggleImportant); //Not needed now
 }
 
 window.onload = init;
@@ -138,3 +162,7 @@ window.onload = init;
 // catch the click event on the icon, (on init fn)
 // when the icon is clickedcall a funciton named toggleImportant
 // in toggleImportant console log a message
+
+
+// send a delete request to
+// https://fsdiapi.azurewebsites.net/api/tasks/clear/<name>
