@@ -53,6 +53,18 @@ body {
     font-size: 1.5rem;
 }
 
+.task-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.btnRemove {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.583);
+    width: 9rem;
+}
+
 .active-tasks label {
     flex: 1;
     color: brown;
