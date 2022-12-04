@@ -91,23 +91,22 @@ function displayTask(task) {
     $("#pendingTasks").append(syntax);
 }
 
-// function btnRemove() {
-//     console.log("Start of btnRemove function"),
-//         console.log("Removing")
-//     let delRequest = $.ajax({
-//         url: "https://fsdiapi.azurewebsites.net/api/tasks",
-//         type: "REMOVE",
-//         dataType: 'json',
-//         data: person,
+function btnRemove() {
+    console.log("Start of btnRemove function"),
+        console.log("Removing")
+    $.ajax({
+        url: "https://fsdiapi.azurewebsites.net/api/tasks/James",
+        type: "REMOVE",
+        // dataType: 'json',
 
-//         success: function (delRequest, data) {
-//             console.log("Data during", data);
-//         },
-//         error: function () {
-//             console.log("Request error: ", error);
-//         }
-//     });
-// }
+        success: function (data) {
+            console.log("Data during", data);
+        },
+        error: function () {
+            console.log("Request error: ", error);
+        }
+    });
+}
 
 
 //to test this function execute testRequest(); directly in console
