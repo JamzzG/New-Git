@@ -3,7 +3,7 @@
 // const importantIcon= "fa-solid fa-heart";
 var isImportant = false;
 var isVisible = true
-let important = "⚪"
+let important = "⚝"
 console.log(important)
 //toggling between icons using class
 // function toggleImportant() {
@@ -69,7 +69,7 @@ function saveTask() {
 function displayTask(task) {
     let syntax = `
     <div class=active-tasks>
-    ⚪
+    ⚝
         <div class=task-title>
             <h4>${task.title}</h4>
             <p>${task.description}</p>
@@ -82,8 +82,9 @@ function displayTask(task) {
                 <label>$${task.budget}</label>
             </div>
     
-            
-            <button class="btn btnRemove" onclick="btnRemove()">Task Completed</button>
+            <div class="containerDel">
+                <div class="btn btnRemove" onClick="btnRemove()"><a href="#">Delete Task?</a>
+            </div> 
         </div>
     </div>
     `;
@@ -93,14 +94,13 @@ function displayTask(task) {
 
 function btnRemove() {
     console.log("Start of btnRemove function"),
-        console.log("Removing")
+        console.log("Deleting...")
     $.ajax({
         url: "https://fsdiapi.azurewebsites.net/api/tasks/James",
-        type: "REMOVE",
-        // dataType: 'json',
+        type: "DELETE",
 
         success: function (data) {
-            console.log("Data during", data);
+            console.log("Data after deleting: ", data);
         },
         error: function () {
             console.log("Request error: ", error);
